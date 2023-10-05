@@ -25,6 +25,7 @@ export const Navbar=()=>{
         </button>
         <div className='collapse navbar-collapse' id='navbarNavDropdown'>
           <ul className='navbar-nav ms-auto text-uppercase'>
+         
             <li className='nav-item active'>
               <NavLink className='nav-link text-black' to='/home'>Home</NavLink>
             </li>
@@ -45,6 +46,12 @@ export const Navbar=()=>{
             <li className='nav-item'>
               < NavLink className='nav-link text-black' to='/search'>Search Books</NavLink>
             </li>
+            {
+            authState.isAuthenticated &&
+              <li className='nav-item'>
+                <NavLink className='nav-link text-black' to='/shelf'>Shelf</NavLink>
+              </li>
+            }
             {/* <li className='nav-item m-1'>
                 <a type='button' className='btn btn-outline-light' href='/login'>Sign in</a>
               </li> */}

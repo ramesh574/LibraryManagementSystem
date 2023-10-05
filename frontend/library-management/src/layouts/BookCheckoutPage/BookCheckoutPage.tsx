@@ -213,6 +213,7 @@ export const BookCheckoutPage = () => {
         setIsCheckedOut(true);
     }
     async function submitReview(starInput: number, reviewDescription: string) {
+        console.log(starInput)
         let bookId: number = 0;
         if (book?.id) {
             bookId = book.id;
