@@ -1,6 +1,7 @@
 package com.ramesh.libraryworld.dao;
 
 import com.ramesh.libraryworld.entity.Review;
+import lombok.Data;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
