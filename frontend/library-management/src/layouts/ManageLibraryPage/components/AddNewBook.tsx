@@ -39,8 +39,6 @@ export const AddNewBook = () => {
         }
     }
 
-
-
     async function submitNewBook() {
         const url = `http://localhost:8080/api/admin/secure/add/book`;
         if (authState?.isAuthenticated && title !== '' && author !== '' && category !== 'Category' 
@@ -129,7 +127,7 @@ export const AddNewBook = () => {
                         </div>
                         <input type='file' onChange={e => base64ConversionForImages(e)}/>
                         <div>
-                            <button type='button' className='btn bg-tone mt-3'>
+                            <button type='button' className='btn bg-tone mt-3' onClick={submitNewBook}>
                                 Add Book
                             </button>
                         </div>
