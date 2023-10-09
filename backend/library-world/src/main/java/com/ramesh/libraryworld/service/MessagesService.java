@@ -1,0 +1,36 @@
+package com.ramesh.libraryworld.service;
+
+import com.ramesh.libraryworld.dao.MessageRepository;
+import com.ramesh.libraryworld.entity.Message;
+import com.ramesh.libraryworld.requestmodels.AdminQuestionRequest;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+@Service
+@Transactional
+public class MessagesService {
+    private MessageRepository messageRepository;
+    public MessagesService(MessageRepository messageRepository)
+    {
+        this.messageRepository=messageRepository;
+    }
+    public  void postMessage(Message messageRequest,String userEmail){
+        Message message=new Message(messageRequest.getTitle(),messageRequest.getQuestion());
+        message.setUserEmail(userEmail);
+        messageRepository.save(message);
+    }
+    public void putMessage(AdminQuestionRequest adminQuestionRequest, String userEmail) throws Exception {
+        Optional<Message> message = messageRepository.findById(adminQuestionRequest.getId());
+        if (!message.isPresent()) {
+            throw new Exception("Message not found");
+        }
+
+        message.get().setAdminEmail(userEmail);
+        message.get().setResponse(adminQuestionRequest.getResponse());
+        message.get().setClosed(true);
+        messageRepository.save(message.get());
+    }
+
+}

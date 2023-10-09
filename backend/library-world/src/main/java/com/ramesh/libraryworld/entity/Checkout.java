@@ -1,9 +1,12 @@
 package com.ramesh.libraryworld.entity;
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Checkout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

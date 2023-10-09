@@ -1,6 +1,7 @@
 package com.ramesh.libraryworld.config;
 
 import com.ramesh.libraryworld.entity.Book;
+import com.ramesh.libraryworld.entity.Message;
 import com.ramesh.libraryworld.entity.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -23,8 +24,10 @@ public class MyConfig implements RepositoryRestConfigurer {
         };
         config.exposeIdsFor(Book.class);
         config.exposeIdsFor(Review.class);
+        config.exposeIdsFor(Message.class);
         disableHttpMethods(Review.class,config,theUnsupportedAction);
         disableHttpMethods(Book.class, config, theUnsupportedAction);
+        disableHttpMethods(Message.class,config,theUnsupportedAction);
         /* Configure CORS Mapping */
         cors.addMapping(config.getBasePath() + "/**")
                 .allowedOrigins(allowOrigin);
