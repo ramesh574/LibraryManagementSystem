@@ -41,6 +41,12 @@ export const Navbar = () => {
                 <NavLink className='nav-link text-black' to='/shelf'>Shelf</NavLink>
               </li>
             }
+            {
+              authState.isAuthenticated && authState.accessToken?.claims?.userType === 'admin' &&
+              <li className='nav-item'>
+                <NavLink className='nav-link text-black' to='/admin'>ADMIN</NavLink>
+              </li>
+            }
               {!authState.isAuthenticated ?
               <li className='nav-item'>
                 <NavLink className='nav-link text-black' to='/login'>LOGIN</NavLink>
