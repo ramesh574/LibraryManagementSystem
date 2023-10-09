@@ -59,3 +59,11 @@ background-color: #8ff0a4 ;
     background-color: white;
     color: black;
  }
+    .nav-tabs .nav-link {
+        color: #09ad30; /* Replace with your desired text color */
+      }
+  
+  /* Active tab color */
+  .nav-tabs .nav-link:hover {
+    color: #09a72b; /* Replace with your desired active tab text color */
+  }
